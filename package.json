@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Ferxu01/projectManagerAPI#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "mongodb": "^4.8.0",
+    "mongoose": "^6.4.6",
     "nodemon": "^2.0.19"
   }
 }
