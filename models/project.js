@@ -1,12 +1,15 @@
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const ProjectSchema = new mongoose.Schema({
-    name: String,
-    creationDate: Date
+const ProjectSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
+    }/*,
+    creationDate: Date*/
 });
 
-const ProjectModel = mongoose.model('project', ProjectSchema);
+const ProjectModel = model('Project', ProjectSchema);
 
-module.exports = {
-    Project: ProjectModel
-};
+module.exports = ProjectModel;
