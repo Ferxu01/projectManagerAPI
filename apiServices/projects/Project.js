@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const { TechnologySchema } = require('../technologies/Technology');
 
 const ProjectSchema = new Schema({
     name: {
@@ -6,7 +7,16 @@ const ProjectSchema = new Schema({
         required: true,
         minlength: 1,
         trim: true
-    }/*,
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    usedTechnologies: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Technology'
+    }],
+    /*,
     creationDate: Date*/
 });
 

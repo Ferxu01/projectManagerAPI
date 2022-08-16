@@ -5,9 +5,11 @@ routes.getProjects = () => {
     return projectDao.getProjects();
 };
 
-routes.addProject = ({ name }) => {
+routes.addProject = ({ name, description, usedTechnologies }) => {
     return projectDao.addProject({
-        name
+        name,
+        description,
+        usedTechnologies
     });
 };
 

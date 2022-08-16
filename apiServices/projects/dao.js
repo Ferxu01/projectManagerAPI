@@ -2,13 +2,20 @@ const routes = {};
 const Project = require('./Project');
 
 routes.getProjects = async () => {
-    return await Project.find();
+    return await Project.find().populate('usedTechnologies', {
+        _id: 0,
+        name: 1
+    });
 };
 
-routes.addProject = async ({ name }) => {
+routes.addProject = async ({ name, description }) => {
     const newProject = new Project({
-        name
+        name,
+        description,
+        usedTechnologies
     });
+
+    console.log(newProject);
 
     return await newProject.save();
 };

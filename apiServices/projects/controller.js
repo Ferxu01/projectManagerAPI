@@ -9,10 +9,12 @@ projectsCtrl.getProjects = async (req, res) => {
 };
 
 projectsCtrl.addProject = async (req, res) => {
-    const { name } = req.body;
+    const { name, description, usedTechnologies } = req.body;
     
     const project = await projectModel.addProject({
-        name
+        name,
+        description,
+        usedTechnologies
     });
 
     return res.send(projectDto.single(project, undefined));
